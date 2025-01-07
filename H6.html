@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Missão 6 - Criando uma Imagem em HTML</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff7f50, #ff4500); /* Tema moderno */
+            color: #fff;
+            text-align: center;
+        }
+        .container {
+            max-width: 90%;
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            font-size: 1.6em;
+            margin-bottom: 15px;
+        }
+        p {
+            font-size: 0.9em;
+            text-align: justify;
+            margin-bottom: 10px;
+            padding: 0 10px;
+        }
+        .mission-box {
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: left;
+            margin: 10px 0;
+        }
+        .mission-box pre {
+            background: #2d2d2d;
+            color: #ff7f50;
+            padding: 8px;
+            border-radius: 10px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            user-select: none;
+            -webkit-user-select: none;
+            font-size: 0.85em;
+        }
+        .explanation {
+            font-size: 0.85em;
+            text-align: justify;
+            margin-top: 10px;
+            padding: 0 10px;
+            color: #fff;
+        }
+        textarea {
+            width: 90%;
+            max-width: 600px; /* Limita a largura */
+            height: 80px;
+            margin: 15px auto;
+            padding: 12px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            resize: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        textarea:focus {
+            outline: none;
+            border-color: #ff7f50;
+        }
+        .validate-btn {
+            display: none;
+            background: #28a745;
+            color: #fff;
+            font-size: 1em;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+        .validate-btn:hover {
+            background: #218838;
+        }
+        .warning {
+            background: #dc3545;
+            padding: 10px;
+            border-radius: 8px;
+            color: white;
+            font-size: 1.1em;
+            margin: 10px auto;
+            width: 80%;
+        }
+        @media (max-width: 600px) {
+            h1, h2 {
+                font-size: 1.4em;
+            }
+            .mission-box pre {
+                font-size: 0.8em;
+            }
+            .container {
+                padding: 8px;
+            }
+            textarea {
+                font-size: 0.9em;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Missão 6 - Criando uma Imagem em HTML</h1>
+        <p>
+            Até agora, aprendemos a criar títulos com a tag <code>&lt;h1&gt;</code>, adicionar títulos de página com a tag <code>&lt;title&gt;</code>, e como a tag <code>&lt;!DOCTYPE html&gt;</code> é importante para garantir que o navegador entenda corretamente o nosso código.
+        </p>
+
+        <div class="mission-box">
+            <h2>Agora, vamos aprender a adicionar uma imagem em HTML!</h2>
+            <p>
+                Para adicionar uma imagem em HTML, usamos a tag <code>&lt;img&gt;</code>. Ela requer dois atributos essenciais: <code>src</code> e <code>alt</code>.
+            </p>
+            <p>
+                O atributo <code>src</code> especifica o caminho da imagem que você deseja mostrar, enquanto o atributo <code>alt</code> fornece uma descrição alternativa da imagem (para casos onde a imagem não pode ser carregada ou para usuários com deficiência visual).
+            </p>
+        </div>
+
+        <div class="mission-box">
+            <h3>Exemplo de Código:</h3>
+            <pre>
+&lt;img src="URL_da_imagem" alt="Texto alternativo"&gt;
+            </pre>
+            <p>
+                No exemplo acima, substitua <code>URL_da_imagem</code> pelo endereço da imagem que você deseja exibir e forneça uma descrição para o atributo <code>alt</code>.
+            </p>
+        </div>
+
+        <p>Agora, sua tarefa é escrever o código HTML correto para exibir uma imagem!</p>
+
+        <textarea id="user-input" placeholder="Escreva seu código HTML aqui..."></textarea>
+        <button id="validate-btn" class="validate-btn" onclick="validateMission()">Validar</button>
+
+        <div id="error-message" class="warning" style="display: none;">Erro: Seu código está incorreto. Verifique o exemplo e tente novamente.</div>
+    </div>
+
+    <script>
+        const userInput = document.getElementById("user-input");
+        const validateBtn = document.getElementById("validate-btn");
+        const errorMessage = document.getElementById("error-message");
+
+        // Mostra o botão "Validar" apenas quando o usuário digitar algo
+        userInput.addEventListener("input", () => {
+            if (userInput.value.trim() !== "") {
+                validateBtn.style.display = "inline-block";
+            } else {
+                validateBtn.style.display = "none";
+            }
+        });
+
+        // Valida a missão
+        function validateMission() {
+            const userCode = userInput.value.trim();
+
+            // Validação: O código deve conter a tag <img> com os atributos src e alt
+            if (
+                userCode.includes('<img') &&
+                userCode.includes('src="') &&
+                userCode.includes('alt="')
+            ) {
+                alert("Parabéns! Você completou a missão com sucesso!");
+                localStorage.setItem("html_mission", "H7.html"); // Salva o progresso no localStorage
+                window.location.href = "H7.html"; // Redireciona para a próxima missão
+            } else {
+                errorMessage.style.display = "block"; // Exibe a mensagem de erro
+            }
+        }
+
+        // Impede que o usuário volte para a missão H6 se já tiver completado
+        window.onload = () => {
+            if (localStorage.getItem("html_mission") === "H7.html") {
+                window.location.href = "pagina3.html";
+            }
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Missão 1 - HTML</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff7f50, #ff4500); /* Tema moderno */
+            color: #fff;
+            text-align: center;
+        }
+        .container {
+            max-width: 90%;
+            margin: 20px auto;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            font-size: 1.6em;
+            margin-bottom: 15px;
+        }
+        p {
+            font-size: 0.9em;
+            text-align: justify;
+            margin-bottom: 10px;
+            padding: 0 10px;
+        }
+        .mission-box {
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: left;
+            margin: 10px 0;
+        }
+        .mission-box pre {
+            background: #2d2d2d;
+            color: #ff7f50;
+            padding: 8px;
+            border-radius: 10px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            user-select: none;
+            -webkit-user-select: none;
+            font-size: 0.85em;
+        }
+        .explanation {
+            font-size: 0.85em;
+            text-align: justify;
+            margin-top: 10px;
+            padding: 0 10px;
+            color: #fff;
+        }
+        textarea {
+            width: 85%;
+            max-width: 100%;
+            height: 60px;
+            margin: 15px auto;
+            padding: 8px;
+            font-size: 0.9em;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            resize: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        textarea:focus {
+            outline: none;
+            border-color: #ff7f50;
+        }
+        .validate-btn {
+            display: none;
+            background: #28a745;
+            color: #fff;
+            font-size: 0.9em;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .validate-btn:hover {
+            background: #218838;
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.4em;
+            }
+            .mission-box pre {
+                font-size: 0.8em;
+            }
+            .container {
+                padding: 8px;
+            }
+            .validate-btn {
+                font-size: 0.8em;
+                padding: 7px 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Missão 1 - Introdução ao HTML</h1>
+        <p>
+            HTML (HyperText Markup Language) é usado para estruturar conteúdo na web. A tag <code>&lt;h1&gt;</code> é usada para criar um título principal em sua página.
+        </p>
+        <div class="mission-box">
+            <h2>Exemplo de Código</h2>
+            <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Minha Página&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;Aqui o usuário pode escrever o que quiser&lt;/h1&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+            </pre>
+            <p>
+                No exemplo acima, a tag <code>&lt;h1&gt;</code> cria um título principal. O texto entre as tags será exibido de forma destacada. Sua tarefa é reproduzir o código usando <code>&lt;h1&gt;</code>, mas com o texto que você desejar.
+            </p>
+        </div>
+        <div class="explanation">
+            <p>
+                A tag <code>&lt;h1&gt;</code> é fundamental para definir títulos principais em páginas web. O que você colocar dentro dessa tag será destacado de maneira proeminente na página. Essa tag é de vital importância para a organização do conteúdo na web, pois o título principal geralmente é o primeiro elemento a ser visto pelos usuários.
+            </p>
+        </div>
+        <textarea id="user-input" placeholder="Escreva seu código HTML aqui..."></textarea>
+        <button id="validate-btn" class="validate-btn" onclick="validateMission()">Validar</button>
+    </div>
+
+    <script>
+        const userInput = document.getElementById("user-input");
+        const validateBtn = document.getElementById("validate-btn");
+
+        // Mostra o botão "Validar" apenas quando o usuário digitar algo
+        userInput.addEventListener("input", () => {
+            if (userInput.value.trim() !== "") {
+                validateBtn.style.display = "inline-block";
+            } else {
+                validateBtn.style.display = "none";
+            }
+        });
+
+        // Função para validar a missão
+        function validateMission() {
+            const userCode = userInput.value.trim();
+
+            // Verifica se a tag <h1> foi utilizada corretamente e contém qualquer conteúdo
+            const h1TagPattern = /<h1>.*<\/h1>/;
+
+            // Verifica se o código contém a tag <h1> corretamente, mas sem palavras inadequadas
+            const inappropriateWords = ["porn", "sex", "violence"]; // Lista de palavras inadequadas
+            const hasInappropriateWords = inappropriateWords.some(word => userCode.toLowerCase().includes(word));
+
+            if (!hasInappropriateWords && h1TagPattern.test(userCode)) {
+                alert("Parabéns! Você completou a missão com sucesso!");
+                localStorage.setItem("html_mission", "H2.html"); // Salva o progresso no localStorage
+                window.location.href = "H2.html"; // Redireciona para a próxima missão
+            } else if (hasInappropriateWords) {
+                alert("Erro: Seu código contém palavras inadequadas. Por favor, evite conteúdo impróprio.");
+            } else {
+                alert("Erro: Seu código está incompleto ou errado. Revise o exemplo e tente novamente.");
+            }
+        }
+
+        // Impede que o usuário volte para esta missão caso já tenha completado
+        window.onload = () => {
+            if (localStorage.getItem("html_mission") === "H2.html") {
+                window.location.href = "pagina3.html";
+            }
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Missão 5 - A Tag <!DOCTYPE html></title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff7f50, #ff4500); /* Tema moderno */
+            color: #fff;
+            text-align: center;
+        }
+        .container {
+            max-width: 90%;
+            margin: 20px auto;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-size: 1.6em;
+            margin-bottom: 15px;
+        }
+        p {
+            font-size: 0.9em;
+            text-align: justify;
+            margin-bottom: 10px;
+            padding: 0 10px;
+        }
+        .mission-box {
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: left;
+            margin: 10px 0;
+        }
+        .mission-box pre {
+            background: #2d2d2d;
+            color: #ff7f50;
+            padding: 8px;
+            border-radius: 10px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            user-select: none;
+            -webkit-user-select: none;
+            font-size: 0.85em;
+        }
+        .explanation {
+            font-size: 0.85em;
+            text-align: justify;
+            margin-top: 10px;
+            padding: 0 10px;
+            color: #fff;
+        }
+        .next-mission-btn {
+            display: none;
+            background: #28a745;
+            color: #fff;
+            font-size: 0.9em;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .next-mission-btn:hover {
+            background: #218838;
+        }
+        .warning {
+            background: #dc3545;
+            padding: 10px;
+            border-radius: 8px;
+            color: white;
+            font-size: 1.1em;
+            margin: 10px auto;
+            width: 80%;
+        }
+        @media (max-width: 600px) {
+            h1, h2 {
+                font-size: 1.4em;
+            }
+            .mission-box pre {
+                font-size: 0.8em;
+            }
+            .container {
+                padding: 8px;
+            }
+            .next-mission-btn {
+                font-size: 0.8em;
+                padding: 7px 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Missão 5 - A tag <code>&lt;!DOCTYPE html&gt;</code></h1>
+        <p>
+            A tag <code>&lt;!DOCTYPE html&gt;</code> é uma das primeiras coisas que você verá ao começar a escrever um código HTML. Sem ela, o navegador pode não entender corretamente a página e pode haver erros na renderização.
+        </p>
+        
+        <div class="mission-box">
+            <h2>Explicação sobre a tag <code>&lt;!DOCTYPE html&gt;</code></h2>
+            <p>
+                A tag <code>&lt;!DOCTYPE html&gt;</code> serve para informar ao navegador qual versão do HTML está sendo usada. No caso do HTML5, essa tag é obrigatória para garantir que o documento seja interpretado corretamente como um documento HTML5.
+            </p>
+            <p>
+                Sem essa tag, o navegador pode entrar em um modo de compatibilidade (modo quirks), onde o layout da página pode não ser exibido corretamente, afetando a estrutura e o design da página. Quando a tag <code>&lt;!DOCTYPE html&gt;</code> é utilizada, o navegador sabe que a página deve ser interpretada como um documento HTML5 e renderiza o conteúdo conforme esperado.
+            </p>
+            <p>
+                Além disso, a tag <code>&lt;!DOCTYPE html&gt;</code> deve ser colocada no topo de qualquer página HTML, antes de qualquer outra tag, como <code>&lt;html&gt;</code> ou <code>&lt;head&gt;</code>.
+            </p>
+        </div>
+        
+        <div class="explanation">
+            <p>
+                Um exemplo de código com a tag <code>&lt;!DOCTYPE html&gt;</code>:
+            </p>
+            <div class="mission-box">
+                <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Página Exemplo&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;Bem-vindo à minha página&lt;/h1&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+                </pre>
+            </div>
+            <p>
+                No exemplo acima, a tag <code>&lt;!DOCTYPE html&gt;</code> define que estamos usando o HTML5, e ela deve sempre ser a primeira linha do código.
+            </p>
+        </div>
+
+        <button id="next-mission-btn" class="next-mission-btn" onclick="goToNextMission()">Ir para próxima missão</button>
+    </div>
+
+    <script>
+        // Função para mostrar o botão "Ir para próxima missão" após 10 segundos
+        setTimeout(() => {
+            document.getElementById("next-mission-btn").style.display = "inline-block";
+        }, 10000);  // 10 segundos
+
+        // Impede que o usuário volte para a missão H5 se já tiver completado
+        window.onload = () => {
+            if (localStorage.getItem("html_mission") === "H6.html") {
+                window.location.href = "pagina3.html";
+            }
+        };
+
+        function goToNextMission() {
+            localStorage.setItem("html_mission", "H6.html"); // Salva o progresso
+            window.location.href = "H6.html"; // Redireciona para a próxima missão
+        }
+    </script>
+</body>
+</html>

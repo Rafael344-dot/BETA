@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Missão 8 - Criando um Botão</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff7f50, #ff4500); /* Tema moderno */
+            color: #fff;
+            text-align: center;
+        }
+        .container {
+            max-width: 90%;
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            font-size: 1.6em;
+            margin-bottom: 15px;
+        }
+        p {
+            font-size: 0.9em;
+            text-align: justify;
+            margin-bottom: 10px;
+            padding: 0 10px;
+        }
+        .mission-box {
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: left;
+            margin: 10px 0;
+        }
+        .mission-box pre {
+            background: #2d2d2d;
+            color: #ff7f50;
+            padding: 8px;
+            border-radius: 10px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            user-select: none;
+            -webkit-user-select: none;
+            font-size: 0.85em;
+        }
+        textarea {
+            width: 85%;
+            max-width: 100%;
+            height: 60px;
+            margin: 15px auto;
+            padding: 8px;
+            font-size: 0.9em;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            resize: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        textarea:focus {
+            outline: none;
+            border-color: #ff7f50;
+        }
+        .validate-btn {
+            display: none;
+            background: #28a745;
+            color: #fff;
+            font-size: 1em;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .validate-btn:hover {
+            background: #218838;
+        }
+        @media (max-width: 600px) {
+            h1, h2 {
+                font-size: 1.4em;
+            }
+            .mission-box pre {
+                font-size: 0.8em;
+            }
+            .container {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Missão 8 - Criando um Botão</h1>
+        <p>
+            A tag <code>&lt;button&gt;</code> é usada para criar um botão em HTML. Você pode usar esta tag para ações como enviar formulários, abrir links ou executar funções de JavaScript.
+        </p>
+
+        <div class="mission-box">
+            <h2>Como Criar um Botão</h2>
+            <p>
+                O botão é uma das tags mais comuns e importantes do HTML. Ele permite que o usuário interaja com a página, realizando ações como enviar dados de um formulário ou ativar funções específicas.
+            </p>
+            <p>
+                A tag <code>&lt;button&gt;</code> não exige um fechamento especial, mas pode conter texto ou elementos dentro dela. Você pode até incluir ícones ou imagens, se necessário.
+            </p>
+            <p>
+                Exemplo de um botão simples:
+            </p>
+            <div class="mission-box">
+                <h3>Exemplo de Código:</h3>
+                <pre>
+&lt;button&gt;Clique Aqui&lt;/button&gt;
+                </pre>
+                <p>
+                    No exemplo acima, criamos um botão simples que contém o texto "Clique Aqui". Você pode usar a tag <code>&lt;button&gt;</code> de diversas maneiras para realizar diferentes ações.
+                </p>
+            </div>
+        </div>
+
+        <p>Agora, sua missão é escrever o código da tag <code>&lt;button&gt;</code> corretamente. Para esta missão, o código certo é o seguinte:</p>
+
+        <div class="mission-box">
+            <pre>
+&lt;button&gt;[Escreva o texto aqui]&lt;/button&gt;
+            </pre>
+        </div>
+
+        <textarea id="user-input" placeholder="Escreva seu código HTML aqui..."></textarea>
+        <button id="validate-btn" class="validate-btn" onclick="validateMission()">Validar</button>
+    </div>
+
+    <script>
+        const userInput = document.getElementById("user-input");
+        const validateBtn = document.getElementById("validate-btn");
+
+        // Mostra o botão "Validar" apenas quando o usuário digitar algo
+        userInput.addEventListener("input", () => {
+            if (userInput.value.trim() !== "") {
+                validateBtn.style.display = "inline-block";
+            } else {
+                validateBtn.style.display = "none";
+            }
+        });
+
+        // Valida a missão
+        function validateMission() {
+            const userCode = userInput.value.trim();
+
+            // Simples validação para verificar se o código contém <button> corretamente
+            if (userCode.startsWith("<button>") && userCode.endsWith("</button>")) {
+                alert("Parabéns! Você completou a missão com sucesso!");
+                localStorage.setItem("html_mission", "H9.html"); // Salva o progresso no localStorage
+                window.location.href = "H9.html"; // Redireciona para a próxima missão
+            } else {
+                alert("Erro: Seu código parece estar incompleto ou errado. Revise o exemplo e tente novamente.");
+            }
+        }
+
+        // Impede que o usuário volte para esta missão caso já tenha completado
+        window.onload = () => {
+            if (localStorage.getItem("html_mission") === "H9.html") {
+                window.location.href = "pagina3.html";
+            }
+        };
+    </script>
+</body>
+</html>

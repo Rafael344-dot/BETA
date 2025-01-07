@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escolha seu Curso</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1e3c72, #2a5298); /* Tema Ano Novo */
+            color: #fff;
+            text-align: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+        }
+        .courses {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .course-btn {
+            width: 200px;
+            height: 150px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #1e3c72;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .course-btn:hover {
+            background: #ffcc00;
+            color: #000;
+        }
+        footer {
+            margin-top: 50px;
+            font-size: 0.9em;
+            color: rgba(255, 255, 255, 0.7);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bem-vindo aos Cursos de Programação</h1>
+        <p>Escolha um curso para começar sua jornada no mundo da tecnologia:</p>
+        <div class="courses">
+            <button class="course-btn" onclick="redirectToLastMission('html')">HTML</button>
+            <button class="course-btn" onclick="alert('Curso em desenvolvimento!')">CSS</button>
+            <button class="course-btn" onclick="alert('Curso em desenvolvimento!')">JavaScript</button>
+            <button class="course-btn" onclick="alert('Curso em desenvolvimento!')">Python</button>
+            <button class="course-btn" onclick="alert('Curso em desenvolvimento!')">Outro</button>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2025 - Curso de Programação para Todos | akiles modder</p>
+    </footer>
+
+    <script>
+        function redirectToLastMission(course) {
+            // Verifica o progresso do curso HTML
+            if (course === 'html') {
+                const nextMission = localStorage.getItem('html_mission') || 'H1.html';
+                window.location.href = nextMission;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Missão 3 - HTML</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff7f50, #ff4500); /* Tema moderno */
+            color: #fff;
+            text-align: center;
+        }
+        .container {
+            max-width: 90%;
+            margin: 20px auto;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-size: 1.6em;
+            margin-bottom: 15px;
+        }
+        p {
+            font-size: 0.9em;
+            text-align: justify;
+            margin-bottom: 10px;
+            padding: 0 10px;
+        }
+        .mission-box {
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: left;
+            margin: 10px 0;
+        }
+        .mission-box pre {
+            background: #2d2d2d;
+            color: #ff7f50;
+            padding: 8px;
+            border-radius: 10px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            user-select: none;
+            -webkit-user-select: none;
+            font-size: 0.85em;
+        }
+        .explanation {
+            font-size: 0.85em;
+            text-align: justify;
+            margin-top: 10px;
+            padding: 0 10px;
+            color: #fff;
+        }
+        .next-mission-btn {
+            display: none;
+            background: #28a745;
+            color: #fff;
+            font-size: 0.9em;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .next-mission-btn:hover {
+            background: #218838;
+        }
+        .warning {
+            background: #dc3545;
+            padding: 10px;
+            border-radius: 8px;
+            color: white;
+            font-size: 1.1em;
+            margin: 10px auto;
+            width: 80%;
+        }
+        textarea {
+            width: 90%;  /* Aumenta a largura do campo */
+            max-width: 100%;
+            height: 60px;
+            margin: 15px auto;
+            padding: 8px;
+            font-size: 0.9em;
+            border: 1px solid #ccc;
+            border-radius: 12px; /* Borda arredondada */
+            resize: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        textarea:focus {
+            outline: none;
+            border-color: #ff7f50;
+        }
+        @media (max-width: 600px) {
+            h1, h2 {
+                font-size: 1.4em;
+            }
+            .mission-box pre {
+                font-size: 0.8em;
+            }
+            .container {
+                padding: 8px;
+            }
+            .next-mission-btn {
+                font-size: 0.8em;
+                padding: 7px 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Missão 3 - A tag <code>&lt;title&gt;</code> em HTML</h1>
+        <p>
+            Agora vamos aprender sobre a tag <code>&lt;title&gt;</code>. Ao contrário da tag <code>&lt;h1&gt;</code>, que define títulos na página, a tag <code>&lt;title&gt;</code> define o título que aparece na aba do navegador.
+        </p>
+        <div class="mission-box">
+            <h2>Exemplo de Código</h2>
+            <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Título da Página&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;p&gt;Este é o conteúdo da página&lt;/p&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+            </pre>
+            <p>
+                Neste exemplo, o título "Título da Página" será exibido na aba do navegador. Sua missão é criar uma tag <code>&lt;title&gt;</code> similar.
+            </p>
+        </div>
+        <div class="explanation">
+            <p>
+                A tag <code>&lt;title&gt;</code> é colocada dentro da tag <code>&lt;head&gt;</code> e é usada para definir o título da página exibido na aba do navegador. Ao contrário do <code>&lt;h1&gt;</code>, o conteúdo da tag <code>&lt;title&gt;</code> não é visível no corpo da página, mas é muito importante para SEO (Search Engine Optimization) e a experiência do usuário.
+            </p>
+        </div>
+        
+        <textarea id="user-input" placeholder="Escreva seu código HTML aqui..."></textarea>
+        <button id="validate-btn" class="next-mission-btn" onclick="validateMission()">Validar</button>
+        
+        <div id="warning-msg" class="warning" style="display: none;">
+            <p>O código deve estar correto! Por favor, insira a tag <code>&lt;title&gt;</code> corretamente.</p>
+        </div>
+
+        <button id="next-mission-btn" class="next-mission-btn" style="display: none;" onclick="goToNextMission()">Ir para próxima missão</button>
+    </div>
+
+    <script>
+        const userInput = document.getElementById("user-input");
+        const validateBtn = document.getElementById("validate-btn");
+        const warningMsg = document.getElementById("warning-msg");
+        const nextMissionBtn = document.getElementById("next-mission-btn");
+
+        // Mostra o botão "Validar" apenas quando o usuário digitar algo
+        userInput.addEventListener("input", () => {
+            if (userInput.value.trim() !== "") {
+                validateBtn.style.display = "inline-block";
+            } else {
+                validateBtn.style.display = "none";
+            }
+        });
+
+        // Valida a missão
+        function validateMission() {
+            const userCode = userInput.value.trim();
+
+            // Validação para a tag <title> com qualquer conteúdo entre as tags
+            if (userCode.startsWith("<title>") && userCode.endsWith("</title>") && userCode.length > 13) {
+                warningMsg.style.display = "none";
+                alert("Parabéns! Você completou a missão com sucesso!");
+                localStorage.setItem("html_mission", "H4.html"); // Salva o progresso
+                nextMissionBtn.style.display = "inline-block"; // Exibe o botão "Ir para próxima missão"
+            } else {
+                warningMsg.style.display = "inline-block"; // Exibe a mensagem de erro
+            }
+        }
+
+        // Impede que o usuário volte para a missão H3 se já tiver completado
+        window.onload = () => {
+            if (localStorage.getItem("html_mission") === "H4.html") {
+                window.location.href = "pagina3.html";
+            }
+        };
+
+        function goToNextMission() {
+            window.location.href = "H4.html"; // Redireciona para a próxima missão
+        }
+    </script>
+</body>
+</html>

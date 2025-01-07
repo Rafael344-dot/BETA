@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Missão 2 - HTML</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff7f50, #ff4500); /* Tema moderno */
+            color: #fff;
+            text-align: center;
+        }
+        .container {
+            max-width: 90%;
+            margin: 20px auto;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-size: 1.6em;
+            margin-bottom: 15px;
+        }
+        p {
+            font-size: 0.9em;
+            text-align: justify;
+            margin-bottom: 10px;
+            padding: 0 10px;
+        }
+        .mission-box {
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: left;
+            margin: 10px 0;
+        }
+        .mission-box pre {
+            background: #2d2d2d;
+            color: #ff7f50;
+            padding: 8px;
+            border-radius: 10px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            user-select: none;
+            -webkit-user-select: none;
+            font-size: 0.85em;
+        }
+        .explanation {
+            font-size: 0.85em;
+            text-align: justify;
+            margin-top: 10px;
+            padding: 0 10px;
+            color: #fff;
+        }
+        .next-mission-btn {
+            display: none;
+            background: #28a745;
+            color: #fff;
+            font-size: 0.9em;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .next-mission-btn:hover {
+            background: #218838;
+        }
+        @media (max-width: 600px) {
+            h1, h2 {
+                font-size: 1.4em;
+            }
+            .mission-box pre {
+                font-size: 0.8em;
+            }
+            .container {
+                padding: 8px;
+            }
+            .next-mission-btn {
+                font-size: 0.8em;
+                padding: 7px 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Missão 2 - O Título em HTML</h1>
+        <p>
+            Agora que você completou a primeira missão, vamos explicar um pouco mais sobre a tag <code>&lt;h1&gt;</code> e seus "irmãos".
+        </p>
+        <div class="mission-box">
+            <h2>O que você aprendeu sobre a tag <code>&lt;h1&gt;</code></h2>
+            <pre>
+                A tag &lt;h1&gt; é usada para criar um título principal na página.
+                Quanto maior o número na tag, menor será o tamanho do título.
+                Exemplo:
+                &lt;h1&gt;Título Maior&lt;/h1&gt;
+                &lt;h6&gt;Título Menor&lt;/h6&gt;
+            </pre>
+            <p>
+                A tag <code>&lt;h1&gt;</code> é usada para definir o título principal de sua página, geralmente o título mais destacado. À medida que o número na tag aumenta de <code>&lt;h1&gt;</code> até <code>&lt;h6&gt;</code>, o tamanho do título diminui. O <code>&lt;h1&gt;</code> é o mais importante, sendo utilizado para títulos de maior destaque, enquanto <code>&lt;h6&gt;</code> é para títulos menores e menos relevantes.
+            </p>
+        </div>
+        <div class="explanation">
+            <p>
+                Ao utilizar essas tags, você organiza melhor a hierarquia do conteúdo na página. O <code>&lt;h1&gt;</code> é o título principal e deve ser usado uma vez na página. As outras tags, como <code>&lt;h2&gt;</code>, <code>&lt;h3&gt;</code>, até <code>&lt;h6&gt;</code>, são usadas para subtítulos e títulos de seções. O uso adequado dessas tags melhora a acessibilidade e a otimização para motores de busca.
+            </p>
+        </div>
+        <button id="next-mission-btn" class="next-mission-btn" onclick="goToNextMission()">Ir para próxima missão</button>
+    </div>
+
+    <script>
+        // Impede que o usuário volte para esta missão se já tiver completado
+        window.onload = () => {
+            if (localStorage.getItem("html_mission") === "H3.html") {
+                window.location.href = "pagina3.html";
+            }
+
+            // Bloqueia o retorno à missão H2
+            setTimeout(() => {
+                document.getElementById("next-mission-btn").style.display = "inline-block";
+            }, 10000); // Exibe o botão após 10 segundos
+        };
+
+        function goToNextMission() {
+            localStorage.setItem("html_mission", "H3.html"); // Salva o progresso
+            window.location.href = "H3.html"; // Redireciona para a próxima missão
+        }
+    </script>
+</body>
+</html>
