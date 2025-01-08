@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Missão 2 - Usando o print() em Python</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #00bfff, #1e90ff); /* Cor de fundo */
+            color: #fff;
+            text-align: center;
+        }
+        .container {
+            max-width: 90%;
+            margin: 20px auto;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            font-size: 1.6em;
+            margin-bottom: 15px;
+        }
+        p {
+            font-size: 1em;
+            text-align: justify;
+            margin-bottom: 10px;
+            padding: 0 10px;
+        }
+        .mission-box {
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: left;
+            margin: 10px 0;
+        }
+        .mission-box pre {
+            background: #2d2d2d;
+            color: #ff7f50;
+            padding: 8px;
+            border-radius: 10px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            user-select: none;
+            -webkit-user-select: none;
+            font-size: 0.85em;
+        }
+        textarea {
+            width: 85%;
+            max-width: 100%;
+            height: 60px;
+            margin: 15px auto;
+            padding: 8px;
+            font-size: 0.9em;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            resize: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        textarea:focus {
+            outline: none;
+            border-color: #ff7f50;
+        }
+        .validate-btn {
+            display: none;
+            background: #28a745;
+            color: #fff;
+            font-size: 0.9em;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .validate-btn:hover {
+            background: #218838;
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.4em;
+            }
+            .container {
+                padding: 8px;
+            }
+            .validate-btn {
+                font-size: 0.8em;
+                padding: 7px 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Missão 2 - Usando o print() em Python</h1>
+        <p>
+            O comando `print()` é utilizado para exibir informações na tela. Vamos aprender a usá-lo para exibir texto ou valores de variáveis. A tarefa é simples: digite o código abaixo usando o comando `print()`.
+        </p>
+        <div class="mission-box">
+            <h2>Exemplo de Código</h2>
+            <pre>
+# Usando o comando print() para exibir informações
+print("Olá, Mundo!")
+            </pre>
+            <p>
+                O código acima exibe a mensagem "Olá, Mundo!" na tela. Sua tarefa é escrever o código de forma similar, utilizando o `print()`.
+            </p>
+        </div>
+        <textarea id="user-input" placeholder="Escreva seu código Python aqui..."></textarea>
+        <button id="validate-btn" class="validate-btn" onclick="validateMission()">Validar</button>
+    </div>
+
+    <script>
+        const userInput = document.getElementById("user-input");
+        const validateBtn = document.getElementById("validate-btn");
+
+        // Mostra o botão "Validar" apenas quando o usuário digitar algo
+        userInput.addEventListener("input", () => {
+            if (userInput.value.trim() !== "") {
+                validateBtn.style.display = "inline-block";
+            } else {
+                validateBtn.style.display = "none";
+            }
+        });
+
+        // Função para validar a missão
+        function validateMission() {
+            const userCode = userInput.value.trim();
+            console.log(userCode);  // Adicionando um console.log para debug
+
+            // Verificando se o código é exatamente igual a 'print("Olá, Mundo!")'
+            if (userCode === 'print("Olá, Mundo!")') {
+                alert("Parabéns! Você completou a missão com sucesso!");
+                localStorage.setItem("python_mission", "PY3.html"); // Salva o progresso
+                window.location.href = "PY3.html"; // Redireciona para a próxima missão
+            } else {
+                alert("Erro: Seu código está incorreto. Lembre-se de usar exatamente print(\"Olá, Mundo!\")");
+            }
+        }
+
+        // Impede que o usuário volte para esta missão caso já tenha completado
+        window.onload = () => {
+            if (localStorage.getItem("python_mission") === "PY3.html") {
+                window.location.href = "pagina3.html";
+            }
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Missão 3 - Aprofundando no print() em Python</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #00bfff, #1e90ff); /* Cor de fundo */
+            color: #fff;
+            text-align: center;
+        }
+        .container {
+            max-width: 90%;
+            margin: 20px auto;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            font-size: 1.6em;
+            margin-bottom: 15px;
+        }
+        p {
+            font-size: 1em;
+            text-align: justify;
+            margin-bottom: 10px;
+            padding: 0 10px;
+        }
+        .mission-box {
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: left;
+            margin: 10px 0;
+        }
+        .validate-btn {
+            display: none;
+            background: #28a745;
+            color: #fff;
+            font-size: 0.9em;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .validate-btn:hover {
+            background: #218838;
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.4em;
+            }
+            .container {
+                padding: 8px;
+            }
+            .validate-btn {
+                font-size: 0.8em;
+                padding: 7px 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Missão 3 - Aprofundando no comando print() em Python</h1>
+        <p>
+            O comando `print()` é fundamental em Python e muito utilizado para exibir informações ou resultados na tela. Ele é utilizado em muitas situações, desde simples mensagens até a exibição de valores de variáveis ou resultados de cálculos.
+        </p>
+        <div class="mission-box">
+            <h2>Importância do print()</h2>
+            <p>
+                Lembre-se de que em Python, o `print()` é uma das formas mais comuns de interagir com o usuário e mostrar os resultados de um programa. Mesmo em projetos mais avançados, você verá o `print()` sendo utilizado para depuração ou exibição de informações em tempo real.
+            </p>
+            <p>
+                <strong>Importante:</strong> Sempre mantenha atenção às tags e sintaxe corretas. Qualquer erro pode causar problemas na execução do seu código!
+            </p>
+        </div>
+
+        <!-- O botão "Ir para próxima missão" aparece após 10 segundos -->
+        <button id="validate-btn" class="validate-btn" onclick="goToNextMission()">Ir para a próxima missão</button>
+    </div>
+
+    <script>
+        // Função para aparecer o botão após 10 segundos
+        setTimeout(() => {
+            document.getElementById("validate-btn").style.display = "inline-block";
+        }, 10000); // 10 segundos
+
+        // Função para redirecionar para a próxima missão
+        function goToNextMission() {
+            localStorage.setItem("python_mission", "PY4.html"); // Salva o progresso
+            window.location.href = "PY4.html"; // Redireciona para a próxima missão
+        }
+
+        // Impede que o usuário volte para esta missão caso já tenha completado
+        window.onload = () => {
+            if (localStorage.getItem("python_mission") === "PY4.html") {
+                window.location.href = "pagina3.html"; // Impede voltar para a página de missão 3
+            }
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PY13 - Explicação sobre if, elif, else</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1e90ff, #87cefa);
+            color: #fff;
+            text-align: center;
+        }
+        .container {
+            max-width: 90%;
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2em;
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+        button {
+            display: none;
+            background: #28a745;
+            color: #fff;
+            font-size: 1em;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+        button:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Missão PY13</h1>
+        
+        <p><strong>Entendendo a estrutura condicional:</strong></p>
+
+        <p>Você já aprendeu o básico sobre a estrutura de <code>if</code>, mas agora vamos aprofundar um pouco mais. A estrutura <code>if</code> permite que o programa execute um bloco de código apenas se uma condição for verdadeira. Caso contrário, o código dentro de um <code>else</code> ou <code>elif</code> será executado.</p>
+        
+        <p>Vamos entender melhor cada parte da estrutura condicional:</p>
+
+        <p><strong>1. if:</strong> O <code>if</code> é a palavra-chave usada para testar uma condição. Se a condição for verdadeira, o código dentro do bloco <code>if</code> será executado.</p>
+        <p><strong>Exemplo:</strong></p>
+        <pre>if idade >= 18:
+    print("Você é maior de idade!")</pre>
+        <p>Isso significa que, se a variável <code>idade</code> for maior ou igual a 18, o programa imprimirá a mensagem "Você é maior de idade!".</p>
+        
+        <p><strong>2. elif:</strong> Se a condição do <code>if</code> não for verdadeira, você pode usar o <code>elif</code> (abreviação de "else if") para testar uma nova condição. Se o <code>if</code> não foi executado e a condição do <code>elif</code> for verdadeira, o código dentro do bloco <code>elif</code> será executado.</p>
+        <p><strong>Exemplo:</strong></p>
+        <pre>elif idade == 18:
+    print("Você tem 18 anos!")</pre>
+        <p>Isso significa que, se a variável <code>idade</code> for exatamente 18, o programa imprimirá "Você tem 18 anos!".</p>
+        
+        <p><strong>3. else:</strong> Se nenhuma das condições anteriores forem verdadeiras, o código dentro do <code>else</code> será executado. O <code>else</code> serve para capturar todas as outras possibilidades.</p>
+        <p><strong>Exemplo:</strong></p>
+        <pre>else:
+    print("Você não tem 18 anos.")</pre>
+        <p>Esse código será executado se a idade não for maior ou igual a 18 e também não for exatamente 18. Ou seja, ele é para todas as idades menores que 18.</p>
+
+        <p><em>Agora, depois de toda essa explicação detalhada, você está pronto para entender como usar <code>if</code>, <code>elif</code> e <code>else</code> em seus próprios códigos!</em></p>
+
+        <button id="next-btn" onclick="goToNextPage()">Ir para a próxima missão</button>
+    </div>
+
+    <script>
+        // Bloquear a navegação para trás
+        if (localStorage.getItem("PY13_completed") === "true") {
+            window.location.href = "PY14.html";
+        }
+
+        // Mostrar o botão após 10 segundos
+        setTimeout(function() {
+            document.getElementById("next-btn").style.display = "inline-block";
+        }, 10000); // Exibe após 10 segundos
+
+        // Função para ir para a próxima missão
+        function goToNextPage() {
+            localStorage.setItem("PY13_completed", "true"); // Marcar como concluído
+            window.location.href = "PY14.html"; // Ir para a próxima página
+        }
+    </script>
+</body>
+</html>

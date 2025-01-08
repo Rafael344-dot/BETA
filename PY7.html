@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Missão PY7 - Próximos Desafios</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #1e90ff;
+            color: #fff;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+        p {
+            font-size: 1.2em;
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+        .next-btn {
+            display: none;
+            background: #28a745;
+            color: #fff;
+            font-size: 1.2em;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .next-btn:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Prepare-se para os próximos desafios!</h1>
+        <p>
+            A partir de agora, o nível irá aumentar! Você enfrentará desafios mais complexos que irão testar sua 
+            capacidade de aplicar tudo o que aprendeu até agora. 
+        </p>
+        <p>
+            Lembre-se: pratique bastante, revise os conceitos de variáveis, <code>print()</code>, e como criar estruturas básicas.
+            Você já passou pelo básico e agora está pronto para avançar para algo mais desafiador!
+        </p>
+        <p>
+            Tenha atenção ao formato do código e ao uso das tags adequadas. Bons estudos e boa sorte!
+        </p>
+
+        <button id="next-btn" class="next-btn" onclick="goToNextMission()">Ir para a próxima missão</button>
+    </div>
+
+    <script>
+        // Função para exibir o botão após 10 segundos
+        setTimeout(() => {
+            document.getElementById("next-btn").style.display = "inline-block";
+        }, 10000);
+
+        // Função para redirecionar para a próxima página
+        function goToNextMission() {
+            localStorage.setItem("python_mission", "PY8.html"); // Marca que a missão foi concluída
+            window.location.href = "PY8.html"; // Redireciona para a próxima missão
+        }
+
+        // Impede que o usuário volte para esta página caso já tenha completado
+        window.onload = () => {
+            if (localStorage.getItem("python_mission") === "PY8.html") {
+                window.location.href = "pagina3.html"; // Redireciona para o menu principal
+            }
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Missão 1 - Introdução ao Python</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #00bfff, #1e90ff); /* Tema azul para Python */
+            color: #fff;
+            text-align: center;
+        }
+        .container {
+            max-width: 90%;
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            font-size: 1.6em;
+            margin-bottom: 15px;
+        }
+        p {
+            font-size: 0.9em;
+            text-align: justify;
+            margin-bottom: 10px;
+            padding: 0 10px;
+        }
+        .mission-box {
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: left;
+            margin: 10px 0;
+        }
+        .mission-box pre {
+            background: #2d2d2d;
+            color: #00bfff;
+            padding: 8px;
+            border-radius: 10px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            user-select: none;
+            -webkit-user-select: none;
+            font-size: 0.85em;
+        }
+        .validate-btn {
+            display: none;
+            background: #28a745;
+            color: #fff;
+            font-size: 1em;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .validate-btn:hover {
+            background: #218838;
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.4em;
+            }
+            .container {
+                padding: 8px;
+            }
+            .validate-btn {
+                font-size: 0.8em;
+                padding: 7px 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Missão 1 - Introdução ao Python</h1>
+        <p>
+            Python é uma das linguagens de programação mais populares e versáteis no mundo da tecnologia. Ela pode ser usada para construir tudo, desde websites e jogos até inteligência artificial e automação. Neste módulo, vamos começar a aprender como utilizá-la.
+        </p>
+        
+        <div class="mission-box">
+            <h2>O que é o Python?</h2>
+            <p>
+                Python é uma linguagem de programação de alto nível, fácil de aprender e muito poderosa. Ela foi criada por Guido van Rossum e se destaca por sua sintaxe simples e legível. Pode ser usada para desenvolvimento web, automação, análise de dados, inteligência artificial, entre muitos outros.
+            </p>
+            <p>
+                O que torna o Python tão útil? Ele possui uma enorme comunidade de desenvolvedores, o que significa que você pode facilmente encontrar bibliotecas prontas que facilitam seu trabalho, como o Django (para web) e o Pandas (para análise de dados).
+            </p>
+            <p>
+                Python não é apenas útil para quem quer desenvolver sites e aplicativos, mas também para quem deseja aprender conceitos de programação de forma simples e objetiva. A flexibilidade da linguagem a torna uma excelente escolha para iniciantes e profissionais experientes.
+            </p>
+        </div>
+
+        <p>Após esta introdução, você está pronto para começar a trabalhar com Python! Clique no botão abaixo para seguir para a próxima missão.</p>
+
+        <button id="next-btn" class="validate-btn" onclick="goToNextMission()">Ir para a próxima missão</button>
+    </div>
+
+    <script>
+        // Função para mostrar o botão após 10 segundos
+        setTimeout(function() {
+            document.getElementById("next-btn").style.display = "inline-block";
+        }, 10000); // 10 segundos
+
+        // Função para redirecionar para a próxima missão (PY2.html)
+        function goToNextMission() {
+            localStorage.setItem("python_mission", "PY2.html"); // Salva o progresso no localStorage
+            window.location.href = "PY2.html"; // Redireciona para a próxima missão
+        }
+
+        // Bloqueio de retorno, para redirecionar caso o usuário já tenha completado a missão
+        window.onload = () => {
+            const currentMission = localStorage.getItem("python_mission");
+            if (currentMission && currentMission !== "PY1.html") {
+                window.location.href = currentMission; // Se completou PY1, vai direto para a próxima missão
+            }
+        };
+    </script>
+</body>
+</html>

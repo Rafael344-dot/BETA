@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PY14 - Missão com if, elif, else</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1e90ff, #87cefa);
+            color: #fff;
+            text-align: center;
+        }
+        .container {
+            max-width: 90%;
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2em;
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+        .code-box {
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 1em;
+            margin-bottom: 20px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            max-width: 90%;
+            margin: 20px auto;
+            user-select: none; /* Impede a seleção e cópia */
+        }
+        .hint {
+            background-color: #f9e300;
+            color: #000;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-size: 1.2em;
+        }
+        .input-box {
+            width: 90%;
+            max-width: 600px;
+            height: 200px;
+            padding: 15px;
+            font-size: 1em;
+            margin: 20px auto;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            background-color: #fff;
+            color: #000;
+            font-family: monospace;
+            resize: vertical;
+        }
+        button {
+            display: none;
+            background: #28a745;
+            color: #fff;
+            font-size: 1em;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+        button:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Missão PY14 - Criar um código if, elif, else</h1>
+
+        <p><strong>Dica:</strong> Crie um código utilizando as estruturas de <code>if</code>, <code>elif</code> e <code>else</code> para verificar a idade de uma pessoa. O código deve exibir a mensagem "Você é maior de idade", se a idade for 18 ou mais. Se for exatamente 17, o código deve imprimir "Você tem 17 anos", e para idades menores deve imprimir "Você é menor de idade".</p>
+
+        <p><strong>Exemplo de código (não copie, escreva o seu):</strong></p>
+
+        <div class="code-box">
+            <code>idade = 25  <!-- O valor pode ser o que você quiser -->
+            <br>
+            if idade >= 18:
+                <br>    print("Você é maior de idade")
+            <br>elif idade == 17:
+                <br>    print("Você tem 17 anos")
+            <br>else:
+                <br>    print("Você é menor de idade")</code>
+        </div>
+
+        <p><strong>IMPORTANTE:</strong> Faça seu código baseado no exemplo, mas não copie diretamente. Use a estrutura do exemplo para definir a lógica e os prints, e modifique o valor da variável idade se desejar. A lógica deve ser a mesma, as mensagens números deve ser o mesmo.</p>
+
+        <textarea id="code-input" class="input-box" placeholder="Digite seu código aqui..."></textarea>
+
+        <button id="next-btn" onclick="goToNextPage()">Validar e ir para a próxima missão</button>
+    </div>
+
+    <script>
+        // Bloquear a navegação para trás
+        if (localStorage.getItem("PY14_completed") === "true") {
+            window.location.href = "PY15.html";
+        }
+
+        // Exibir o botão após o código ser digitado
+        const codeInput = document.getElementById("code-input");
+        const nextBtn = document.getElementById("next-btn");
+
+        codeInput.addEventListener("input", function() {
+            if (codeInput.value.trim() !== "") {
+                nextBtn.style.display = "inline-block";
+            } else {
+                nextBtn.style.display = "none";
+            }
+        });
+
+        // Função de validação para ir para a próxima página
+        function goToNextPage() {
+            // O código esperado deve ter a estrutura correta de if, elif, else e prints corretos
+            const correctCode = `idade = 25
+if idade >= 18:
+    print("Você é maior de idade")
+elif idade == 17:
+    print("Você tem 17 anos")
+else:
+    print("Você é menor de idade")`;
+
+            // Verificando se o código contém if, elif, else e print, e também se os prints estão corretos
+            const userCode = codeInput.value.trim().replace(/\s+/g, " ");
+
+            // Verificando se o código tem a estrutura de controle e os prints corretos
+            if (userCode.includes("if") && userCode.includes("elif") && userCode.includes("else") && 
+                userCode.includes("print") && userCode.includes("Você é maior de idade") &&
+                userCode.includes("Você tem 17 anos") && userCode.includes("Você é menor de idade")) {
+                localStorage.setItem("PY14_completed", "true");
+                window.location.href = "PY15.html";
+            } else {
+                alert("Código incorreto! Verifique a estrutura de if, elif, else e os prints.");
+            }
+        }
+    </script>
+</body>
+</html>

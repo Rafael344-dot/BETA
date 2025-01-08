@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PY10 - If, Else e Endif</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1e90ff, #87cefa);
+            color: #fff;
+            text-align: center;
+        }
+        .container {
+            max-width: 90%;
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1em;
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+        pre {
+            background: #000;
+            color: #0f0;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: left;
+            font-size: 1em;
+            overflow-x: auto;
+        }
+        .options {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+        button {
+            display: none;
+            background: #28a745;
+            color: #fff;
+            font-size: 1em;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+        button:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Missão PY10</h1>
+        <p>Agora que já aprendemos sobre variáveis e print, vamos aprender sobre estruturas de controle no Python: <code>if</code>, <code>else</code> e <code>endif</code>. Essas estruturas nos permitem tomar decisões dentro do código.</p>
+        
+        <p><strong>if</strong>: A estrutura <code>if</code> é usada para executar um bloco de código apenas quando uma condição é verdadeira.</p>
+        <pre>
+Exemplo:
+if idade >= 18:
+    print("Você é maior de idade.")
+        </pre>
+
+        <p><strong>else</strong>: A estrutura <code>else</code> é usada quando a condição do <code>if</code> é falsa. Ela define o que deve ser feito se a condição não for atendida.</p>
+        <pre>
+Exemplo:
+else:
+    print("Você é menor de idade.")
+        </pre>
+
+        <p><strong>endif</strong>: O Python não usa a palavra-chave <code>endif</code>, mas ela pode ser mencionada como parte de uma explicação para fins de comparação com outras linguagens, como PHP ou Ruby, onde é usada para fechar a estrutura <code>if</code>.</p>
+
+        <p>Vamos ver um exemplo simples:</p>
+        <pre>
+idade = 20
+if idade >= 18:
+    print("Você é maior de idade.")
+else:
+    print("Você é menor de idade.")
+        </pre>
+
+        <p>Essa estrutura permite que seu código tome decisões e execute blocos diferentes dependendo da condição fornecida.</p>
+
+        <p>A estrutura <code>if</code> e <code>else</code> são muito úteis para controle de fluxo, permitindo que seu código se adapte a diferentes situações.</p>
+
+        <p>O código abaixo mostra um exemplo básico de como usar o <code>if</code> e <code>else</code> para tomar decisões em seu programa:</p>
+
+        <pre>
+idade = 16
+if idade >= 18:
+    print("Você é maior de idade.")
+else:
+    print("Você é menor de idade.")
+        </pre>
+
+        <button id="next-btn" onclick="goToNextPage()">Ir para a próxima missão</button>
+    </div>
+
+    <script>
+        // Impedir o usuário de voltar para a página anterior
+        if (localStorage.getItem("PY10_completed") === "true") {
+            window.location.href = "PY11.html";
+        }
+
+        // Exibir o botão após 10 segundos
+        setTimeout(() => {
+            document.getElementById("next-btn").style.display = "inline-block";
+        }, 10000);
+
+        // Função para redirecionar para a próxima página
+        function goToNextPage() {
+            localStorage.setItem("PY10_completed", "true"); // Marcar a missão como completada
+            window.location.href = "PY11.html";
+        }
+    </script>
+</body>
+</html>

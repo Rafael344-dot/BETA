@@ -5,34 +5,140 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Escolha de Gênero</title>
     <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Inter', Arial, sans-serif;
+            background: linear-gradient(135deg, #2a2a72, #009ffd);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin: 0;
-            background-color: #f5f5f5;
+            color: #ffffff;
+            padding: 20px;
+            overflow: hidden;
         }
+
+        .card {
+            background-color: #ffffff;
+            color: #333;
+            padding: 40px 30px;
+            border-radius: 20px;
+            max-width: 400px;
+            width: 100%;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            position: relative;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        /* Efeito de fade-in */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #009ffd;
+        }
+
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
         button {
-            padding: 15px 30px;
-            margin: 10px;
+            padding: 15px;
+            font-size: 1rem;
+            font-weight: 600;
             border: none;
-            border-radius: 5px;
+            border-radius: 10px;
             cursor: pointer;
-            font-size: 18px;
-            background-color: #007bff;
-            color: white;
+            transition: all 0.3s ease;
         }
+
+        /* Efeito de deslizamento */
         button:hover {
-            background-color: #0056b3;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 15px rgba(0, 159, 253, 0.5);
         }
+
+        button.primary {
+            background: linear-gradient(135deg, #009ffd, #2a2a72);
+            color: #ffffff;
+        }
+
+        button.secondary {
+            background-color: #eeeeee;
+            color: #333333;
+        }
+
+        .container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        footer {
+            margin-top: auto;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            color: #eeeeee;
+            text-align: center;
+        }
+
+        footer span {
+            font-weight: bold;
+        }
+
+        /* Responsividade */
+        @media (max-width: 480px) {
+            .card {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            button {
+                font-size: 0.9rem;
+                padding: 12px;
+            }
+        }
+
     </style>
 </head>
 <body>
-    <h1>Escolha seu Gênero</h1>
-    <button onclick="window.location.href='pagina2.html'">Masculino</button>
-    <button onclick="window.location.href='pagina2.html'">Feminino</button>
+    <div class="container">
+        <div class="card">
+            <h1>Escolha seu Gênero</h1>
+            <div class="button-group">
+                <button class="primary" onclick="window.location.href='pagina2.html'">Masculino</button>
+                <button class="secondary" onclick="window.location.href='pagina2.html'">Feminino</button>
+            </div>
+        </div>
+    </div>
+    <footer>
+        &copy; 2025 <span>Akiles Modder</span>. Todos os direitos reservados.
+    </footer>
 </body>
 </html>

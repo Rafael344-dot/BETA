@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PY8 - Missão</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #00bfff, #1e90ff);
+            color: #fff;
+            text-align: center;
+        }
+        .container {
+            max-width: 90%;
+            margin: 20px auto;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+        p {
+            font-size: 1em;
+            text-align: justify;
+            margin-bottom: 10px;
+            padding: 0 10px;
+        }
+        pre {
+            background: #2d2d2d;
+            color: #00bfff;
+            padding: 10px;
+            border-radius: 10px;
+            white-space: pre-wrap;
+            font-size: 0.9em;
+            text-align: left;
+            user-select: none;
+        }
+        textarea {
+            width: 90%;
+            max-width: 90%;
+            height: 100px;
+            margin: 15px auto;
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            resize: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        textarea:focus {
+            outline: none;
+            border-color: #00bfff;
+        }
+        .validate-btn {
+            display: none;
+            background: #28a745;
+            color: #fff;
+            font-size: 1em;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .validate-btn:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Missão PY8</h1>
+        <p>Crie duas variáveis: uma chamada <code>nome</code> (com qualquer valor) e outra chamada <code>idade</code> (com qualquer valor). Em seguida, use dois <code>print</code> para exibir esses valores.</p>
+        <p>Lembre-se de que:</p>
+        <ul>
+            <li>As variáveis devem ser chamadas <code>nome</code> e <code>idade</code>.</li>
+            <li>Você deve usar dois comandos <code>print</code> separados.</li>
+            <li>O código deve estar correto para ser aceito.</li>
+        </ul>
+        <textarea id="user-input" placeholder="Escreva seu código Python aqui..."></textarea>
+        <button id="validate-btn" class="validate-btn" onclick="validateCode()">Validar</button>
+    </div>
+
+    <script>
+        const userInput = document.getElementById("user-input");
+        const validateBtn = document.getElementById("validate-btn");
+
+        // Mostra o botão "Validar" apenas quando o usuário digitar algo
+        userInput.addEventListener("input", () => {
+            if (userInput.value.trim() !== "") {
+                validateBtn.style.display = "inline-block";
+            } else {
+                validateBtn.style.display = "none";
+            }
+        });
+
+        function validateCode() {
+            const userCode = userInput.value.trim();
+            try {
+                // Cria um ambiente para executar o código do usuário
+                const userFunction = new Function(userCode);
+
+                // Executa o código e verifica o output esperado
+                let output = "";
+                const log = console.log;
+                console.log = (msg) => { output += msg + "\n"; };
+
+                userFunction();
+
+                console.log = log; // Restaura o console.log
+
+                if (userCode.includes('nome =') && userCode.includes('idade =') &&
+                    userCode.includes('print(nome)') && userCode.includes('print(idade)')) {
+                    alert("Parabéns! Você concluiu a missão com sucesso!");
+                    localStorage.setItem("python_mission", "PY9.html");
+                    window.location.href = "PY9.html";
+                } else {
+                    alert("Erro: Seu código parece estar incorreto. Verifique se as variáveis estão corretas e se você usou dois 'print'.");
+                }
+            } catch (error) {
+                alert("Erro: Seu código contém um erro de sintaxe ou lógica. Revise e tente novamente.");
+            }
+        }
+
+        // Redireciona se o usuário já completou a missão
+        window.onload = () => {
+            if (localStorage.getItem("python_mission") === "PY9.html") {
+                window.location.href = "pagina3.html";
+            }
+        };
+    </script>
+</body>
+</html>

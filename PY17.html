@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PY17 - Missão Avançada</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1e90ff, #87cefa);
+            color: #fff;
+            text-align: center;
+        }
+        .container {
+            max-width: 90%;
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2em;
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+        .code-box {
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 1em;
+            margin-bottom: 20px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            max-width: 90%;
+            margin: 20px auto;
+        }
+        button {
+            background: #28a745;
+            color: #fff;
+            font-size: 1em;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            display: inline-block;
+        }
+        button:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Missão PY17 - Implementando a Lógica de If, Elif e Else</h1>
+
+        <p><strong>Explicação:</strong> Agora você vai avançar mais com as estruturas condicionais. Utilize <code>if</code>, <code>elif</code> e <code>else</code> para tomar decisões dentro do código, como verificar idades, permissões e mais. Ao completar esta missão, você estará mais perto de entender como criar lógica no Python!</p>
+
+        <p>Escreva um código com <code>if</code>, <code>elif</code> e <code>else</code> de acordo com o exemplo abaixo:</p>
+
+        <div class="code-box">
+            <code>
+if idade >= 18:
+    print("Você é maior de idade.")
+elif idade == 17:
+    print("Você tem 17 anos.")
+else:
+    print("Você é menor de idade.")
+            </code>
+        </div>
+
+        <p>Digite sua idade abaixo e clique no botão para verificar sua resposta!</p>
+
+        <input type="number" id="user-age" class="input-box" placeholder="Digite sua idade..." />
+        <button id="next-btn" onclick="nextMission()">Ir para a próxima missão</button>
+    </div>
+
+    <script>
+        // Bloqueio de navegação para impedir o retorno à página anterior
+        if (window.history && window.history.pushState) {
+            window.history.pushState(null, null, window.location.href);
+            window.onpopstate = function () {
+                // Impede que o usuário retorne para a página anterior
+                window.location.href = "pagina3.html";
+            };
+        }
+
+        // Verifica se a missão foi concluída
+        if (localStorage.getItem('completedPY17') === 'true') {
+            window.location.href = "PY18.html"; // Se já completou, vai para a próxima missão
+        }
+
+        // Função para verificar e salvar o progresso
+        function nextMission() {
+            const age = parseInt(document.getElementById("user-age").value);
+
+            // Validação do código de idade
+            if (age >= 18) {
+                alert("Você completou a missão corretamente! Agora, vamos para a próxima.");
+                localStorage.setItem('completedPY17', 'true'); // Marca que a missão foi concluída
+                window.location.href = "PY18.html"; // Vai para a próxima missão
+            } else if (age < 18 && age > 0) {
+                alert("Tente novamente. A idade inserida não está correta.");
+                document.getElementById("user-age").value = ""; // Limpa o campo para tentar novamente
+            } else {
+                alert("Por favor, insira uma idade válida.");
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PY16 - Você Está Evoluindo!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1e90ff, #87cefa);
+            color: #fff;
+            text-align: center;
+        }
+        .container {
+            max-width: 90%;
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2em;
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+        button {
+            background: #28a745;
+            color: #fff;
+            font-size: 1em;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            display: inline-block;
+        }
+        button:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Missão PY16 - Você Está Evoluindo!</h1>
+
+        <p><strong>Parabéns!</strong> Você está indo muito bem! Cada passo que você dá neste curso te aproxima mais do domínio da programação com Python. Continue firme, pois estamos subindo o nível, e agora as missões vão ficar mais desafiadoras! 💪</p>
+
+        <p>A sua evolução é clara, e isso é só o começo. O caminho à frente vai exigir mais, mas você está preparado! Agradecemos por confiar no site e seguir conosco nesse aprendizado. Estamos orgulhosos de ver você avançando e se superando a cada desafio!</p>
+
+        <p><strong>Continue se esforçando, você está indo muito bem!</strong></p>
+
+        <p>Aperte o botão abaixo para continuar na missão. O próximo nível está aguardando por você!</p>
+
+        <button onclick="goNext()">Ir para a próxima missão</button>
+    </div>
+
+    <script>
+        // Bloqueio de navegação para impedir o retorno à página anterior
+        if (window.history && window.history.pushState) {
+            window.history.pushState(null, null, window.location.href);
+            window.onpopstate = function () {
+                // Impede que o usuário retorne para a página anterior
+                window.location.href = "pagina3.html";
+            };
+        }
+
+        // Verifica se a missão foi concluída
+        if (localStorage.getItem('completedPY16') === 'true') {
+            window.location.href = "PY17.html"; // Se já completou, vai para a próxima missão
+        }
+
+        // Função para marcar missão como concluída e avançar para próxima missão
+        function goNext() {
+            localStorage.setItem('completedPY16', 'true'); // Marca que a missão foi concluída
+            window.location.href = "PY17.html"; // Vai para a próxima missão
+        }
+    </script>
+</body>
+</html>

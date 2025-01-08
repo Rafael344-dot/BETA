@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Missão 4 - Explicação sobre a Tag <title></title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff7f50, #ff4500); /* Tema moderno */
+            color: #fff;
+            text-align: center;
+        }
+        .container {
+            max-width: 90%;
+            margin: 20px auto;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-size: 1.6em;
+            margin-bottom: 15px;
+        }
+        p {
+            font-size: 0.9em;
+            text-align: justify;
+            margin-bottom: 10px;
+            padding: 0 10px;
+        }
+        .mission-box {
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: left;
+            margin: 10px 0;
+        }
+        .mission-box pre {
+            background: #2d2d2d;
+            color: #ff7f50;
+            padding: 8px;
+            border-radius: 10px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            user-select: none;
+            -webkit-user-select: none;
+            font-size: 0.85em;
+        }
+        .explanation {
+            font-size: 0.85em;
+            text-align: justify;
+            margin-top: 10px;
+            padding: 0 10px;
+            color: #fff;
+        }
+        .next-mission-btn {
+            display: none;
+            background: #28a745;
+            color: #fff;
+            font-size: 0.9em;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .next-mission-btn:hover {
+            background: #218838;
+        }
+        .warning {
+            background: #dc3545;
+            padding: 10px;
+            border-radius: 8px;
+            color: white;
+            font-size: 1.1em;
+            margin: 10px auto;
+            width: 80%;
+        }
+        @media (max-width: 600px) {
+            h1, h2 {
+                font-size: 1.4em;
+            }
+            .mission-box pre {
+                font-size: 0.8em;
+            }
+            .container {
+                padding: 8px;
+            }
+            .next-mission-btn {
+                font-size: 0.8em;
+                padding: 7px 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Missão 4 - A tag <code>&lt;title&gt;</code> e sua importância</h1>
+        <p>
+            Nesta missão, vamos entender mais profundamente a tag <code>&lt;title&gt;</code> e como ela se comporta em comparação com a tag <code>&lt;h1&gt;</code>.
+        </p>
+        <div class="mission-box">
+            <h2>Explicação sobre a tag <code>&lt;title&gt;</code></h2>
+            <p>
+                A tag <code>&lt;title&gt;</code> é essencial para o conteúdo de SEO e a aparência da aba do navegador. Embora tenha semelhanças com a tag <code>&lt;h1&gt;</code>, ambas têm funções diferentes:
+            </p>
+            <ul>
+                <li><strong><code>&lt;title&gt;</code></strong>: Define o título da aba do navegador, não visível no corpo da página. Tem papel importante para SEO, ajudando na indexação da página pelos motores de busca.</li>
+                <li><strong><code>&lt;h1&gt;</code></strong>: Define o título visível dentro do corpo da página. O <code>&lt;h1&gt;</code> deve ser usado para identificar a ideia principal da página e para tornar o conteúdo mais acessível e semântico.</li>
+            </ul>
+            <p>
+                A tag <code>&lt;title&gt;</code> e a tag <code>&lt;h1&gt;</code> podem conter o mesmo texto, mas seus propósitos são distintos. O título na aba do navegador (definido pela tag <code>&lt;title&gt;</code>) serve mais para a navegação e o SEO, enquanto o <code>&lt;h1&gt;</code> é um marcador semântico para o conteúdo da página.
+            </p>
+        </div>
+        
+        <div class="explanation">
+            <p>
+                Um exemplo de código usando a tag <code>&lt;title&gt;</code> e a tag <code>&lt;h1&gt;</code>:
+            </p>
+            <div class="mission-box">
+                <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Meu site incrível&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;Bem-vindo ao meu site&lt;/h1&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+                </pre>
+            </div>
+            <p>
+                Como mencionado, a tag <code>&lt;title&gt;</code> afeta o título na aba do navegador, enquanto o <code>&lt;h1&gt;</code> será exibido no corpo da página.
+            </p>
+        </div>
+        
+        <button id="next-mission-btn" class="next-mission-btn" onclick="goToNextMission()">Ir para próxima missão</button>
+    </div>
+
+    <script>
+        // Função para mostrar o botão "Ir para próxima missão" após 10 segundos
+        setTimeout(() => {
+            document.getElementById("next-mission-btn").style.display = "inline-block";
+        }, 10000);  // 10 segundos
+
+        // Impede que o usuário volte para a missão H4 se já tiver completado
+        window.onload = () => {
+            if (localStorage.getItem("html_mission") === "H5.html") {
+                window.location.href = "pagina3.html";
+            }
+        };
+
+        function goToNextMission() {
+            localStorage.setItem("html_mission", "H5.html"); // Salva o progresso
+            window.location.href = "H5.html"; // Redireciona para a próxima missão
+        }
+    </script>
+</body>
+</html>

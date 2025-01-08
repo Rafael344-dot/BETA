@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Missão 4 - Introdução às Variáveis em Python</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #00bfff, #1e90ff); /* Cor de fundo */
+            color: #fff;
+            text-align: center;
+        }
+        .container {
+            max-width: 90%;
+            margin: 20px auto;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            font-size: 1.6em;
+            margin-bottom: 15px;
+        }
+        p {
+            font-size: 1em;
+            text-align: justify;
+            margin-bottom: 10px;
+            padding: 0 10px;
+        }
+        .mission-box {
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: left;
+            margin: 10px 0;
+        }
+        .mission-box pre {
+            background: #2d2d2d;
+            color: #00bfff;
+            padding: 8px;
+            border-radius: 10px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+        textarea {
+            width: 85%;
+            max-width: 100%;
+            height: 60px;
+            margin: 15px auto;
+            padding: 8px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            resize: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .validate-btn {
+            display: none;
+            background: #28a745;
+            color: #fff;
+            font-size: 0.9em;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .validate-btn:hover {
+            background: #218838;
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.4em;
+            }
+            .mission-box pre {
+                font-size: 0.9em;
+            }
+            .container {
+                padding: 8px;
+            }
+            .validate-btn {
+                font-size: 0.8em;
+                padding: 7px 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Missão 4 - Introdução às Variáveis em Python</h1>
+        <p>
+            Em Python, uma variável é usada para armazenar um valor que pode ser alterado. Abaixo, temos um exemplo simples de como criar variáveis e atribuir valores a elas.
+        </p>
+        <div class="mission-box">
+            <h2>Exemplo de Código</h2>
+            <pre>
+nome = "João"
+idade = 25
+            </pre>
+            <p>
+                No exemplo acima, a variável `nome` armazena um valor de texto (nome de uma pessoa), e a variável `idade` armazena um valor numérico. Sua tarefa é escrever um código similar, mas com seu próprio nome e idade.
+            </p>
+        </div>
+        
+        <textarea id="user-input" placeholder="Escreva seu código aqui..."></textarea>
+        <button id="validate-btn" class="validate-btn" onclick="validateMission()">Validar</button>
+    </div>
+
+    <script>
+        const userInput = document.getElementById("user-input");
+        const validateBtn = document.getElementById("validate-btn");
+
+        // Mostra o botão "Validar" apenas quando o usuário digitar algo
+        userInput.addEventListener("input", () => {
+            if (userInput.value.trim() !== "") {
+                validateBtn.style.display = "inline-block";
+            } else {
+                validateBtn.style.display = "none";
+            }
+        });
+
+        // Valida a missão
+        function validateMission() {
+            const userCode = userInput.value.trim();
+
+            // Simples validação para verificar se contém variáveis
+            if (
+                userCode.includes("nome =") && 
+                userCode.includes("idade =")
+            ) {
+                alert("Parabéns! Você completou a missão com sucesso!");
+                localStorage.setItem("python_mission", "PY5.html"); // Salva o progresso no localStorage
+                window.location.href = "PY5.html"; // Redireciona para a próxima missão
+            } else {
+                alert("Erro: Seu código está incompleto ou errado. Revise o exemplo e tente novamente.");
+            }
+        }
+
+        // Impede que o usuário volte para esta missão caso já tenha completado
+        window.onload = () => {
+            if (localStorage.getItem("python_mission") === "PY5.html") {
+                window.location.href = "pagina3.html"; // Impede voltar para a página de missão 4
+            }
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Missão 7 - Funcionamento da Tag <img></title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff7f50, #ff4500); /* Tema moderno */
+            color: #fff;
+            text-align: center;
+        }
+        .container {
+            max-width: 90%;
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            font-size: 1.6em;
+            margin-bottom: 15px;
+        }
+        p {
+            font-size: 0.9em;
+            text-align: justify;
+            margin-bottom: 10px;
+            padding: 0 10px;
+        }
+        .mission-box {
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: left;
+            margin: 10px 0;
+        }
+        .mission-box pre {
+            background: #2d2d2d;
+            color: #ff7f50;
+            padding: 8px;
+            border-radius: 10px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            user-select: none;
+            -webkit-user-select: none;
+            font-size: 0.85em;
+        }
+        .explanation {
+            font-size: 0.85em;
+            text-align: justify;
+            margin-top: 10px;
+            padding: 0 10px;
+            color: #fff;
+        }
+        .validate-btn {
+            display: none;
+            background: #28a745;
+            color: #fff;
+            font-size: 1em;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+        .validate-btn:hover {
+            background: #218838;
+        }
+        .warning {
+            background: #dc3545;
+            padding: 10px;
+            border-radius: 8px;
+            color: white;
+            font-size: 1.1em;
+            margin: 10px auto;
+            width: 80%;
+        }
+        @media (max-width: 600px) {
+            h1, h2 {
+                font-size: 1.4em;
+            }
+            .mission-box pre {
+                font-size: 0.8em;
+            }
+            .container {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Missão 7 - Funcionamento da Tag &lt;img&gt;</h1>
+        <p>
+            Agora que você já sabe como usar a tag <code>&lt;img&gt;</code>, vamos aprender mais sobre como ela funciona e como os atributos <code>src</code> e <code>alt</code> são essenciais para o seu uso.
+        </p>
+
+        <div class="mission-box">
+            <h2>Entendendo a Tag &lt;img&gt;</h2>
+            <p>
+                A tag <code>&lt;img&gt;</code> é usada para exibir imagens em uma página HTML. Ao contrário de muitas outras tags HTML, a tag <code>&lt;img&gt;</code> <strong>não possui uma tag de fechamento</strong>. Isso significa que ela não requer a tag <code>&lt;/img&gt;</code>, como é o caso de outras tags.
+            </p>
+            <p>
+                A tag <code>&lt;img&gt;</code> funciona com dois atributos principais:
+            </p>
+            <ul>
+                <li><strong>src</strong>: Este atributo especifica o caminho (URL) da imagem que você deseja exibir. Pode ser uma imagem local ou uma URL de uma imagem na internet.</li>
+                <li><strong>alt</strong>: O atributo <code>alt</code> fornece um texto alternativo para a imagem. Esse texto é exibido caso a imagem não possa ser carregada, ou para leitores de tela usados por pessoas com deficiência visual.</li>
+            </ul>
+        </div>
+
+        <div class="mission-box">
+            <h3>Exemplo de Código:</h3>
+            <pre>
+&lt;img src="URL_da_imagem" alt="Descrição da imagem"&gt;
+            </pre>
+            <p>
+                No exemplo acima, a tag <code>&lt;img&gt;</code> exibe a imagem localizada no caminho especificado pelo atributo <code>src</code>, enquanto o atributo <code>alt</code> fornece uma descrição da imagem, útil para acessibilidade.
+            </p>
+        </div>
+
+        <p>Agora, após a explicação, o botão para ir para a próxima missão aparecerá em 10 segundos.</p>
+
+        <button id="validate-btn" class="validate-btn" onclick="goToNextMission()">Ir para próxima missão</button>
+
+    </div>
+
+    <script>
+        // Função para exibir o botão após 10 segundos
+        setTimeout(function() {
+            document.getElementById("validate-btn").style.display = "inline-block";
+        }, 10000); // 10 segundos
+
+        // Função para redirecionar para a próxima missão
+        function goToNextMission() {
+            localStorage.setItem("html_mission", "H8.html"); // Salva o progresso no localStorage
+            window.location.href = "H8.html"; // Redireciona para a próxima missão
+        }
+
+        // Impede que o usuário volte para a missão H7 se já tiver completado
+        window.onload = () => {
+            if (localStorage.getItem("html_mission") === "H8.html") {
+                window.location.href = "pagina3.html";
+            }
+        };
+    </script>
+</body>
+</html>

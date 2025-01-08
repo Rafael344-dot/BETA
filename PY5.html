@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Missão 5 - Variáveis e Print</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #00bfff, #1e90ff); /* Cor de fundo */
+            color: #fff;
+            text-align: center;
+        }
+        .container {
+            max-width: 90%;
+            margin: 20px auto;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            font-size: 1.6em;
+            margin-bottom: 15px;
+        }
+        p {
+            font-size: 1em;
+            text-align: justify;
+            margin-bottom: 10px;
+            padding: 0 10px;
+        }
+        .explanation-box {
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: left;
+            margin: 10px 0;
+        }
+        .explanation-box pre {
+            background: #2d2d2d;
+            color: #00bfff;
+            padding: 8px;
+            border-radius: 10px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+        .next-btn {
+            display: none;
+            background: #28a745;
+            color: #fff;
+            font-size: 1em;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .next-btn:hover {
+            background: #218838;
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.4em;
+            }
+            .explanation-box pre {
+                font-size: 0.9em;
+            }
+            .container {
+                padding: 8px;
+            }
+            .next-btn {
+                font-size: 0.8em;
+                padding: 7px 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Missão 5 - Variáveis e Print em Python</h1>
+        <p>
+            Em Python, as **variáveis** são usadas para armazenar informações que você pode usar e modificar ao longo do seu programa. 
+            Já o comando `print()` serve para exibir informações no console, permitindo que você veja os resultados do seu código.
+        </p>
+        
+        <div class="explanation-box">
+            <h2>Explicando as Variáveis e o comando `print()`:</h2>
+            <p>
+                Quando você cria uma variável, como por exemplo `nome = "João"`, você está dizendo ao Python que a palavra "João" está armazenada na variável chamada `nome`.
+                Agora você pode usar essa variável no seu código em vez de escrever o valor diretamente. 
+                A função `print()` é muito usada para mostrar o valor de variáveis ou qualquer outra informação no console.
+            </p>
+            <pre>
+# Exemplo:
+nome = "João"      # Aqui, a variável 'nome' armazena o valor "João"
+print(nome)         # O comando print vai mostrar o conteúdo da variável 'nome' no console
+            </pre>
+            <p>
+                Então, quando você executa o código acima, o console vai exibir "João", porque foi o valor armazenado na variável `nome`.
+            </p>
+        </div>
+
+        <p>Espere 10 segundos para continuar.</p>
+
+        <button id="next-btn" class="next-btn" onclick="goToNextMission()">Ir para a próxima missão</button>
+    </div>
+
+    <script>
+        // Função para redirecionar para a próxima missão após 10 segundos
+        setTimeout(() => {
+            document.getElementById("next-btn").style.display = "inline-block";
+        }, 10000); // 10 segundos
+
+        // Função para ir para a próxima missão
+        function goToNextMission() {
+            localStorage.setItem("python_mission", "PY6.html"); // Marca que a missão foi concluída
+            window.location.href = "PY6.html"; // Redireciona para a próxima missão
+        }
+
+        // Impede que o usuário volte para esta página caso já tenha completado
+        window.onload = () => {
+            if (localStorage.getItem("python_mission") === "PY6.html") {
+                window.location.href = "pagina3.html"; // Impede voltar para a página de missão 5
+            }
+        };
+    </script>
+</body>
+</html>

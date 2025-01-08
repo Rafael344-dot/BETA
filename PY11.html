@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PY11 - Explicação Detalhada sobre If, Else e Elif</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1e90ff, #87cefa);
+            color: #fff;
+            text-align: center;
+        }
+        .container {
+            max-width: 90%;
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1em;
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+        pre {
+            background: #000;
+            color: #0f0;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: left;
+            font-size: 1em;
+            overflow-x: auto;
+        }
+        button {
+            display: none;
+            background: #28a745;
+            color: #fff;
+            font-size: 1em;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+        button:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Missão PY11</h1>
+        <p><strong>Explicação Completa de If, Else e Elif no Python</strong></p>
+
+        <p>Você já aprendeu a usar <code>if</code> e <code>else</code> no Python. Agora, vamos aprofundar mais e aprender sobre <code>elif</code>, que ajuda a fazer múltiplas verificações.</p>
+
+        <p><strong>if</strong>: A estrutura <code>if</code> verifica uma condição. Se a condição for verdadeira, o código dentro do bloco será executado.</p>
+        <pre>
+Exemplo:
+if idade >= 18:
+    print("Você é maior de idade.")
+        </pre>
+
+        <p><strong>else</strong>: O <code>else</code> é o que será feito caso a condição do <code>if</code> não seja atendida. Ou seja, se a condição for falsa.</p>
+        <pre>
+Exemplo:
+else:
+    print("Você é menor de idade.")
+        </pre>
+
+        <p><strong>elif</strong>: O <code>elif</code> (abreviação de "else if") é usado quando você precisa de mais de uma verificação. Caso o <code>if</code> falhe, o Python tenta as condições do <code>elif</code>.</p>
+        <pre>
+Exemplo:
+elif idade == 16:
+    print("Você tem 16 anos, que legal!")
+        </pre>
+
+        <p>Então, ao usar <code>if</code>, <code>elif</code>, e <code>else</code>, podemos criar estruturas de controle de fluxo mais robustas e inteligentes, que ajudam o código a tomar decisões com base nas condições fornecidas.</p>
+
+        <p>Abaixo está um exemplo completo de <code>if</code>, <code>elif</code>, e <code>else</code>:</p>
+        <pre>
+idade = 18
+if idade >= 18:
+    print("Você é maior de idade.")
+elif idade == 16:
+    print("Você tem 16 anos!")
+else:
+    print("Você é menor de idade.")
+        </pre>
+
+        <p>Com isso, conseguimos tratar várias condições diferentes de forma mais limpa e organizada. O Python vai executar apenas a primeira condição verdadeira que encontrar.</p>
+
+        <p>Em resumo, você deve usar <code>if</code> para a condição principal, <code>elif</code> para verificações adicionais e <code>else</code> para a opção final, quando nenhuma das condições anteriores for verdadeira.</p>
+
+        <button id="next-btn" onclick="goToNextPage()">Ir para a próxima missão</button>
+    </div>
+
+    <script>
+        // Impedir o usuário de voltar para a página anterior
+        if (localStorage.getItem("PY11_completed") === "true") {
+            window.location.href = "PY12.html";
+        }
+
+        // Exibir o botão após 10 segundos
+        setTimeout(() => {
+            document.getElementById("next-btn").style.display = "inline-block";
+        }, 10000);
+
+        // Função para redirecionar para a próxima página
+        function goToNextPage() {
+            localStorage.setItem("PY11_completed", "true"); // Marcar a missão como completada
+            window.location.href = "PY12.html";
+        }
+    </script>
+</body>
+</html>

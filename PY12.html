@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PY12 - Escolha a Alternativa Correta</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1e90ff, #87cefa);
+            color: #fff;
+            text-align: center;
+        }
+        .container {
+            max-width: 90%;
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1em;
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+        .options {
+            list-style-type: none;
+            padding: 0;
+        }
+        .options li {
+            background: #333;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .options li:hover {
+            background: #444;
+        }
+        .options li.selected {
+            background: #dc3545; /* cor vermelha para a opção selecionada */
+        }
+        
+        button {
+            display: none;
+            background: #28a745;
+            color: #fff;
+            font-size: 1em;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+        button:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Missão PY12</h1>
+        <p><strong>Escolha a alternativa correta sobre if, elif e else:</strong></p>
+        
+        <p>Escolha a opção que representa corretamente a estrutura de <code>if</code>, <code>elif</code>, e <code>else</code>:</p>
+        
+        <ul class="options">
+            <li id="optionA">A) <pre>if idade >= 18:
+    print("Você é maior de idade.")
+elif idade == 16:
+    print("Você tem 16 anos!")
+else:
+    print("Você é menor de idade.")</pre></li>
+            <li id="optionB">B) <pre>if idade > 18:
+    print("Você é maior de idade.")
+if idade < 18:
+    print("Você é menor de idade.")</pre></li>
+            <li id="optionC">C) <pre>if idade == 18:
+    print("Você tem 18 anos.")</pre></li>
+            <li id="optionD">D) <pre>if idade == 16:
+    print("Você tem 16 anos.")
+elif idade == 17:
+    print("Você tem 17 anos.")</pre></li>
+        </ul>
+
+        <p><em>Apenas uma alternativa está correta.</em></p>
+
+        <button id="next-btn" onclick="goToNextPage()">Ir para a próxima missão</button>
+    </div>
+
+    <script>
+        // Bloquear a navegação para trás
+        if (localStorage.getItem("PY12_completed") === "true") {
+            window.location.href = "PY13.html";
+        }
+
+        // Exibir o botão após o usuário escolher uma opção
+        let selectedOption = null;
+
+        // Marcar as opções
+        document.getElementById("optionA").onclick = function () { selectOption("A"); };
+        document.getElementById("optionB").onclick = function () { selectOption("B"); };
+        document.getElementById("optionC").onclick = function () { selectOption("C"); };
+        document.getElementById("optionD").onclick = function () { selectOption("D"); };
+
+        function selectOption(option) {
+            // Remover a classe de selecionado de todas as opções
+            let options = document.querySelectorAll(".options li");
+            options.forEach((opt) => {
+                opt.classList.remove("selected");
+            });
+
+            // Marcar a opção escolhida
+            let selected = document.getElementById("option" + option);
+            selected.classList.add("selected");
+
+            // Verificar se a resposta está correta
+            if (option === "A") {
+                selected.classList.add("correct");
+            }
+
+            // Mostrar o botão de validar após uma seleção
+            document.getElementById("next-btn").style.display = "inline-block";
+            selectedOption = option;
+        }
+
+        // Função para ir para a próxima missão
+        function goToNextPage() {
+            if (selectedOption === "A") {
+                localStorage.setItem("PY12_completed", "true"); // Marcar como concluído
+                window.location.href = "PY13.html"; // Ir para a próxima página
+            } else {
+                alert("Resposta incorreta! Tente novamente.");
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Missão 6 - Variáveis em Python</title>
+    <style>
+        body {
+            
+            margin: 0;
+            padding: 0;
+            background: #00bfff;
+            color: #fff;
+            text-align: center;
+        }
+        .container {
+            max-width: 300px;
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+        p {
+            font-size: 1.2em;
+            text-align: justify;
+            margin-bottom: 10px;
+        }
+        .code-box {
+            background-color: #000;
+            color: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 16px;
+            width: 100%;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+        .textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 16px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            background-color: #fff;
+            resize: none;
+            color: #000;
+        }
+        .validate-btn {
+            display: none;
+            background: #28a745;
+            color: #fff;
+            font-size: 1.2em;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .validate-btn:hover {
+            background: #218838;
+        }
+        .next-btn {
+            display: none;
+            background: #28a745;
+            color: #fff;
+            font-size: 1em;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .next-btn:hover {
+            background: #218838;
+        }
+        /* Impede copiar o código */
+        .no-copy {
+            -webkit-user-select: none; /* Chrome/Safari */
+            -moz-user-select: none; /* Firefox */
+            -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently supported by most browsers */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Missão 6 - Variáveis em Python</h1>
+        <p>
+            Agora que você aprendeu a usar variáveis e o comando <code>print()</code>, vamos praticar!
+            O objetivo é criar duas variáveis, uma para o nome e outra para a idade, e imprimi-las usando <code>print()</code>.
+        </p>
+
+        <div class="code-box no-copy">
+            <p>Exemplo de código:</p>
+            <pre>
+nome = "João"
+idade = 25
+print(nome)
+print(idade)
+            </pre>
+        </div>
+
+        <p>Agora, crie o seu próprio código. Defina uma variável para o nome e uma para a idade, e use o comando <code>print()</code> para exibir esses valores.</p>
+
+        <textarea class="textarea" id="code-input" placeholder="Digite seu código aqui..."></textarea>
+
+        <button id="validate-btn" class="validate-btn" onclick="validateCode()">Validar Código</button>
+        <button id="next-btn" class="next-btn" onclick="goToNextMission()">Ir para a próxima missão</button>
+    </div>
+
+    <script>
+        // Função para habilitar o botão de validar
+        document.getElementById("code-input").addEventListener("input", function() {
+            const code = this.value.trim();
+            if (code.length > 0) {
+                document.getElementById("validate-btn").style.display = "inline-block";
+            } else {
+                document.getElementById("validate-btn").style.display = "none";
+            }
+        });
+
+        // Função para validar o código
+        function validateCode() {
+            const code = document.getElementById("code-input").value.trim();
+            const correctAnswer = 'nome = "João"\nidade = 25\nprint(nome)\nprint(idade)';
+            
+            // Se o código do usuário estiver correto
+            if (code === correctAnswer) {
+                document.getElementById("validate-btn").style.display = "none";
+                document.getElementById("next-btn").style.display = "inline-block";
+                alert("Código correto! Agora você pode ir para a próxima missão.");
+            } else {
+                alert("Código incorreto. Lembre-se de usar esse formato:\n\nnome = \"João\"\nidade = 25\nprint(nome)\nprint(idade)");
+            }
+        }
+
+        // Função para ir para a próxima missão
+        function goToNextMission() {
+            localStorage.setItem("python_mission", "PY7.html"); // Marca que a missão foi concluída
+            window.location.href = "PY7.html"; // Redireciona para a próxima missão
+        }
+
+        // Impede que o usuário volte para esta página caso já tenha completado
+        window.onload = () => {
+            if (localStorage.getItem("python_mission") === "PY7.html") {
+                window.location.href = "pagina3.html"; // Impede voltar para a página de missão 6
+            }
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PY9 - Missão</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1e90ff, #87cefa);
+            color: #fff;
+            text-align: center;
+        }
+        .container {
+            max-width: 90%;
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1em;
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+        pre {
+            background: #000;
+            color: #0f0;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: left;
+            font-size: 1em;
+            overflow-x: auto;
+        }
+        .options {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+        .option {
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            border-radius: 8px;
+            padding: 15px 20px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            max-width: 400px;
+            text-align: left;
+        }
+        .option:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        .option input {
+            margin-right: 10px;
+        }
+        button {
+            display: none;
+            background: #28a745;
+            color: #fff;
+            font-size: 1em;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+        button:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Missão PY9</h1>
+        <p>Leia o código abaixo e escolha a alternativa correta que representa a forma certa de declarar variáveis e exibir seus valores:</p>
+        <pre>
+# Código para análise:
+A. nome = João
+   idade = 16
+   print(nome idade)
+
+B. nome = João
+   idade = dezesseis
+   print("Nome", "Idade")
+
+C. nome = "João"
+   idade = 16
+   print("Nome:", nome)
+   print("Idade:", idade)
+
+D. nome == "João"
+   idade == 16
+   print(nome idade)
+        </pre>
+        <div class="options">
+            <label class="option">
+                <input type="radio" name="answer" value="A"> A
+            </label>
+            <label class="option">
+                <input type="radio" name="answer" value="B"> B
+            </label>
+            <label class="option">
+                <input type="radio" name="answer" value="C"> C
+            </label>
+            <label class="option">
+                <input type="radio" name="answer" value="D"> D
+            </label>
+        </div>
+        <button id="validate-btn" onclick="validateAnswer()">Validar</button>
+    </div>
+
+    <script>
+        const options = document.querySelectorAll('input[name="answer"]');
+        const validateBtn = document.getElementById("validate-btn");
+
+        // Mostra o botão somente após selecionar uma opção
+        options.forEach(option => {
+            option.addEventListener("change", () => {
+                validateBtn.style.display = "inline-block";
+            });
+        });
+
+        function validateAnswer() {
+            const selectedOption = document.querySelector('input[name="answer"]:checked');
+            if (selectedOption.value === "C") {
+                alert("Parabéns! Você escolheu a resposta correta.");
+                localStorage.setItem("python_mission", "PY10.html");
+                window.location.href = "PY10.html";
+            } else {
+                alert("Resposta incorreta. Revise o código e tente novamente.");
+            }
+        }
+
+        // Redireciona caso o usuário já tenha concluído esta missão
+        window.onload = () => {
+            if (localStorage.getItem("python_mission") === "PY10.html") {
+                window.location.href = "pagina3.html";
+            }
+        };
+    </script>
+</body>
+</html>
